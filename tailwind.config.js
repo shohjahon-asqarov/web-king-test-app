@@ -9,7 +9,7 @@ export default {
       colors: {
         'yellow': '#f8932',
         'card-bg': '#f9fafb',
-        'purple': '#7054e6'
+        'purple': '#8643DC'
       }
     },
   },

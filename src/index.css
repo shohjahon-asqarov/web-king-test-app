@@ -15,7 +15,10 @@
     @apply max-w-7xl mx-auto px-5;
   }
   .btn-blue {
-    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-xl;
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full;
+  }
+  .btn-purple {
+    @apply bg-purple text-white font-bold py-3 px-6 rounded-full;
   }
   .btn-card {
     @apply bg-[#20bfa9] text-white font-bold py-2 px-4 rounded-xl;
