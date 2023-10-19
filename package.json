@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@lordicon/react": "^1.1.0",
     "@reduxjs/toolkit": "^1.9.7",
     "antd": "^5.10.1",
     "aos": "^2.3.4",
     "bootstrap-icons": "^1.11.1",
     "chart.js": "^4.4.0",
     "firebase": "^10.5.0",
+    "lord-icon-element": "^4.1.2",
+    "lottie-web": "^5.12.2",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",

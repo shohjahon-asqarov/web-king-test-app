@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         'yellow': '#f8932',
-        'card-bg': '#f9fafb',
+        'card-bg': '#F5F5F5',
         'purple': '#8643DC'
       }
     },

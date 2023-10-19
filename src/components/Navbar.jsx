@@ -9,7 +9,7 @@ const Navbar = () => {
                 <NavLink to="/">
                     <img className='w-32 sm:w-44' src={logo} alt="web king logo" />
                 </NavLink>
-                <button className='btn-blue'>Kirish</button>
+                <button className='btn-blue bg-[#2C74B3]'>Kirish</button>
             </div>
         </header>
     )
