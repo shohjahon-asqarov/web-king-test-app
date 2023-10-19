@@ -22,9 +22,10 @@ const Test = () => {
             setIndex(index + 1)
             const currentResult = {
                 question: currentQuestion.question,
-                my_answer: currentQuestion.answers[correctIndex - 1],
-                correct_answer: currentQuestion.answers[currentQuestion.correct_answer]
+                my_answer: currentQuestion.answers[correctIndex],
+                correct_answer: currentQuestion.answers[currentQuestion.correct_answer-1]
             }
+            console.log(currentResult);
             setMyAnswers(myAnswers => [...myAnswers, currentResult])
         } else {
             setFinish(true)
@@ -55,7 +56,7 @@ const Test = () => {
                                 <div className='space-y-5 flex flex-col'>
                                     {currentQuestion.answers.map((answer, index) => {
                                         return (
-                                            <button data-aos='fade-left' onClick={() => nextQuestion(index + 1)} className='bg-white py-3.5 px-5 group rounded-lg cursor-pointer hover:bg-slate-200 active:bg-green-200 text-left duration-300 flex justify-between ' key={index}>
+                                            <button data-aos='fade-left' onClick={() => nextQuestion(index)} className='bg-white py-3.5 px-5 group rounded-lg cursor-pointer hover:bg-slate-200 active:bg-green-200 text-left duration-300 flex justify-between ' key={index}>
                                                 {answer}
                                                 <i className='bi bi-check hidden group-hover:flex bg-green-600 rounded-full w-5 h-5 justify-center items-center text-white'></i>
                                             </button>

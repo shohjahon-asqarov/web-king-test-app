@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'card-bg': '#f9fafb'
+        'yellow': '#f8932',
+        'card-bg': '#f9fafb',
+        'purple': '#7054e6'
       }
     },
   },
