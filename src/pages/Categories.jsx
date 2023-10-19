@@ -42,14 +42,14 @@ const Categories = () => {
             <ul className='grid sm:grid-cols-2 lg:grid-cols-3 gap-8'>
                 {questions && questions.map((i, index) => {
                     return (
-                        <li className='p-8 rounded-3xl cursor-pointer bg-card-bg border border-[hsla(0,0%,87.5%,.7)] space-y-5 text-[rgba(2,11,18,.7)]' key={index}>
-                            <p><i className='bi bi-person'></i> {i.owner.name ? i.owner.name : 'No Author'}</p>
+                        <li data-aos='fade-up' className='p-8 rounded-3xl cursor-pointer bg-card-bg border border-[hsla(0,0%,87.5%,.7)] space-y-5 text-[rgba(2,11,18,.7)]' key={index}>
+                            <p><i className='bi bi-person mr-2'></i> {i.owner.name ? i.owner.name : 'No Author'}</p>
                             <p className='uppercase italic text-2xl font-semibold text-[#ff794d]'>
-                                <i className="bi bi-award-fill mr-2 text-base"></i>
+                                <i className="bi bi-award mr-2 text-base"></i>
                                 {i.owner.theme}
                             </p>
                             <p>
-                                <i className="bi bi-pencil-fill mr-2"></i>
+                                <i className="bi bi-pencil mr-2"></i>
                                 {i.owner.category}
                             </p>
                             <div className='flex justify-between items-center'>

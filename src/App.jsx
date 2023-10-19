@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
@@ -8,7 +8,14 @@ import Test from './pages/Test'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const App = () => {
+  useEffect(() => {
+    AOS.init()
+  }, [])
+
   return (
     <div>
       <Navbar />
