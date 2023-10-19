@@ -25,7 +25,6 @@ const Hero = () => {
                 repeat={Infinity}
               />
 
-
             </span> <br />
             o'quv markazi
           </h1>
