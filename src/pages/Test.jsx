@@ -91,8 +91,14 @@ const Test = () => {
 
                                     </div>
 
-                                    <div className='border-t pt-4'>
-                                        <button onClick={() => navigate('/category')} className="btn-blue">Ortga</button>
+                                    <div className='border-t pt-4 flex space-x-5'>
+                                        <button onClick={() => navigate('/category')} className="btn-blue">
+                                            Ortga
+                                        </button>
+                                        <button className="btn-blue bg-[#229ED9]">
+                                            Ulashmoq
+                                            <i className='bi bi-telegram ml-2'></i>
+                                        </button>
                                     </div>
                                 </li>
                             </ul>
