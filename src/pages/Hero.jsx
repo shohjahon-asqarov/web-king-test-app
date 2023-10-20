@@ -38,7 +38,7 @@ const Hero = () => {
         </div>
 
         <div data-aos='fade-left' className='md:col-span-3 hero-img'>
-          <img width='500' height='500' className='lg:-translate-x-20 lg:-translate-y-5' src={heroImg} alt="hero" />
+          <img width='700' height='700' className='lg:-translate-x-20 lg:-translate-y-5' src={heroImg} alt="hero" />
         </div>
       </div>
 

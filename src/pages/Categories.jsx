@@ -51,7 +51,7 @@ const Categories = () => {
                         <ul className='grid sm:grid-cols-2 lg:grid-cols-3 gap-8'>
                             {questions && questions.map((i, index) => {
                                 return (
-                                    <li data-aos='fade-up' className='p-7 rounded-3xl cursor-pointer bg-card-bg border border-[hsla(0,0%,87.5%,.7)] text-[rgba(2,11,18,.7)]' key={index}>
+                                    <li data-aos='fade-up' className='p-7 rounded-3xl cursor-pointer bg-card-bg border border-[hsla(0,0%,87.5%,.7)] text-[rgba(2,11,18,.7)] hover:bg-slate-200 !transition-colors duration-300' key={index}>
                                         <p className='mb-3'><i className='bi bi-person mr-2'></i> {i.owner.name ? i.owner.name : 'No Author'}</p>
                                         <h3 className='uppercase mb-3 text-xl font-bold !text-[#289C8E]'>
                                             <i className="bi bi-award mr-2 text-base"></i>
