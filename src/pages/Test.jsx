@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-
 const Test = () => {
     const navigate = useNavigate()
     const [index, setIndex] = useState(0)
@@ -50,13 +49,21 @@ const Test = () => {
                         <ul className='space-y-5 mx-auto'>
                             <li className='p-5 sm:p-8 rounded-3xl bg-card-bg border border-[hsla(0,0%,87.5%,.7)] space-y-5 text-[rgba(2,11,18,.7)] relative overflow-hidden' key={currentQuestion.id}>
                                 <div className='flex justify-between items-center'>
-                                    <h3 className='text-xl font-semibold border-b pb-4'>{index + 1} / 10) {currentQuestion.question}</h3>
+                                    <h3 className='text-xl font-semibold border-b pb-4 w-full animation-show'>{index + 1} / 10) {currentQuestion.question}</h3>
                                 </div>
                                 <div className='space-y-5 flex flex-col'>
                                     {currentQuestion.answers.map((answer, index) => {
                                         return (
-                                            <button onClick={() => nextQuestion(index)} className='bg-white py-3.5 px-5 group rounded-lg cursor-pointer active:bg-green-200 text-left duration-300 flex justify-between border-2 hover:border-[#289C8E]' key={index}>
-                                                {answer}
+                                            <button onClick={() => nextQuestion(index)} className='bg-white py-3.5 px-5 group rounded-xl cursor-pointer active:bg-[#289C8E] active:text-white text-left duration-300 flex justify-between border-2 hover:border-[#289C8E] animation-show' key={index}>
+                                                <div>
+                                                    <span className='font-medium'>
+                                                        {index === 0 && 'A) '}
+                                                        {index === 1 && 'B) '}
+                                                        {index === 2 && 'C) '}
+                                                        {index === 3 && 'D) '}
+                                                    </span>
+                                                    {answer}
+                                                </div>
                                                 <i className='bi bi-check hidden group-hover:flex bg-[#289C8E] rounded-full w-5 h-5 justify-center items-center text-white'></i>
                                             </button>
                                         )
@@ -88,7 +95,6 @@ const Test = () => {
                                             </li>
                                         </ul>
                                         <Progress className='mx-auto circle-progress' type="circle" percent={checkCorrect(myAnswers) * 10} />
-
                                     </div>
 
                                     <div className='border-t pt-4 flex space-x-5'>
@@ -137,7 +143,7 @@ const Test = () => {
                     status="warning"
                     title="Qamdaydur muammo yuzaga keldi ortga qayting!"
                     extra={
-                        <button onClick={() => navigate('/')} className='btn-blue'>
+                        <button onClick={() => navigate(-1)} className='btn-blue'>
                             Ortga qaytish
                         </button>
                     }

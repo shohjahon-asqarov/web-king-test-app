@@ -46,7 +46,18 @@
 }
 
 .circle-progress .ant-progress-circle-path {
-  stroke: #289C8E !important;
+  stroke: #289c8e !important;
 }
 
+.animation-show {
+  animation: show .5s linear 1;
+}
 
+@keyframes show {
+  0% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
