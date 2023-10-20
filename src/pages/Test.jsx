@@ -47,9 +47,9 @@ const Test = () => {
                 <div>
                     {!finish && currentQuestion && questions ?
                         <ul className='space-y-5 mx-auto'>
-                            <li className='p-5 sm:p-8 rounded-3xl bg-card-bg border border-[hsla(0,0%,87.5%,.7)] space-y-5 text-[rgba(2,11,18,.7)] relative overflow-hidden' key={currentQuestion.id}>
+                            <li className='p-5 py-12 sm:px-8 rounded-3xl bg-card-bg border border-[hsla(0,0%,87.5%,.7)] space-y-5 text-[rgba(2,11,18,.7)] relative overflow-hidden' key={currentQuestion.id}>
                                 <div className='flex justify-between items-center'>
-                                    <h3 className='text-xl font-semibold border-b pb-4 w-full animation-show'>{index + 1} / 10) {currentQuestion.question}</h3>
+                                    <h3 className='text-lg sm:text-xl font-semibold border-b pb-4 w-full animation-show'>{index + 1} / 10) {currentQuestion.question}</h3>
                                 </div>
                                 <div className='space-y-5 flex flex-col'>
                                     {currentQuestion.answers.map((answer, index) => {
