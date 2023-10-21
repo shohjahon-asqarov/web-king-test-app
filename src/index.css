@@ -32,6 +32,10 @@
   }
 }
 
+body {
+  overflow-y: scroll;
+}
+
 .progress {
   width: 100%;
   left: 0;
