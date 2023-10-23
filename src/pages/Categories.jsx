@@ -64,7 +64,7 @@ const Categories = () => {
                                         <div className='flex justify-between items-center'>
                                             <span>
                                                 <i className='bi bi-calendar mr-2'></i>
-                                                18.10.2023
+                                                {i.owner.added_time}
                                             </span>
                                             <button onClick={() => startTest(i)} className='btn-card'>
                                                 <i className='bi bi-arrow-right'></i>
