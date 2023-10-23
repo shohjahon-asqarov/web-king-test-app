@@ -54,7 +54,7 @@ const Test = () => {
                                 <div className='space-y-5 flex flex-col'>
                                     {currentQuestion.answers.map((answer, index) => {
                                         return (
-                                            <button onClick={() => nextQuestion(index)} className='bg-white py-3.5 px-5 group rounded-xl cursor-pointer active:bg-[#289C8E] active:text-white text-left duration-300 flex justify-between border-2 hover:border-[#289C8E] animation-show' key={index}>
+                                            <button onClick={() => nextQuestion(index)} className='bg-white py-3.5 px-5 group rounded-xl cursor-pointer active:bg-[#289C8E] active:text-white text-left duration-300 flex justify-between border-2 sm:hover:border-[#289C8E] animation-show' key={index}>
                                                 <div>
                                                     <span className='font-medium'>
                                                         {index === 0 && 'A) '}
@@ -64,7 +64,7 @@ const Test = () => {
                                                     </span>
                                                     {answer}
                                                 </div>
-                                                <i className='bi bi-check hidden group-hover:flex bg-[#289C8E] rounded-full w-5 h-5 justify-center items-center text-white'></i>
+                                                <i className='bi bi-check hidden group-active:flex sm:group-hover:flex bg-[#289C8E] rounded-full w-5 h-5 justify-center items-center text-white'></i>
                                             </button>
                                         )
                                     })}
