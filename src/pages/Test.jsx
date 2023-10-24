@@ -1,13 +1,17 @@
-import { Progress, Result } from 'antd'
-import React, { useEffect, useState } from 'react'
+import { Input, Modal, Progress, Result } from 'antd'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+
 
 const Test = () => {
     const navigate = useNavigate()
     const [index, setIndex] = useState(0)
     const [myAnswers, setMyAnswers] = useState([])
     const [finish, setFinish] = useState(false)
+
+    const nameRef = useRef()
+    const usernameRef = useRef()
 
     const [time, setTime] = useState(0);
     const [running, setRunning] = useState(false);
@@ -40,7 +44,6 @@ const Test = () => {
                 my_answer: currentQuestion.answers[correctIndex],
                 correct_answer: currentQuestion.answers[currentQuestion.correct_answer - 1]
             }
-            console.log(currentResult);
             setMyAnswers(myAnswers => [...myAnswers, currentResult])
             if (myAnswers.length === 9) {
                 setRunning(false)
@@ -60,6 +63,28 @@ const Test = () => {
         return result
     }
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+    const handleOk = () => {
+        // result sent to telegram 
+        const minut = ("0" + Math.floor((time / 60000) % 60)).slice(-2)
+        const secund = ("0" + Math.floor((time / 1000) % 60)).slice(-2)
+
+        let text = `✏️Mavzu: ${questions.owner.theme}%0A👤Ismi familiya: ${nameRef.current.input.value}%0A📱Telegram: @${usernameRef.current.input.value}%0A⏰Sarflangan vaqt: ${minut}:${secund}%0A✅To'g'ri javoblar: ${checkCorrect(myAnswers)} ta / ${10 * checkCorrect(myAnswers)}%%0A❌Noto'g'ri javoblar: ${myAnswers.length - checkCorrect(myAnswers)} ta%0A❔Jami savollar: 10 ta`
+
+        const token = "6456033575:AAFmRkIbmEwJ5RbCuc6UrP-EK42V_Zbyzvs";
+        let url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=-1001995880798&text=";
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url + `${text}`, true);
+        xhttp.send();
+
+        setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <section className='container py-20'>
@@ -138,8 +163,8 @@ const Test = () => {
                                         <button onClick={() => navigate('/category')} className="btn-blue">
                                             Ortga
                                         </button>
-                                        <button className="btn-blue bg-[#229ED9]">
-                                            Ulashmoq
+                                        <button onClick={showModal} className="btn-blue bg-[#229ED9]">
+                                            Ulashish
                                             <i className='bi bi-telegram ml-2'></i>
                                         </button>
                                     </div>
@@ -186,6 +211,13 @@ const Test = () => {
                     }
                 />
             }
+
+            <Modal title="Telegramga ulashish" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <div className='space-y-4 py-8'>
+                    <Input ref={nameRef} className='py-1.5 input' size='large' prefix={<i className='bi bi-person'></i>} placeholder='Ism familiyangiz' />
+                    <Input ref={usernameRef} className='py-1.5 input' size='large' prefix={<i className='bi bi-telegram'></i>} placeholder='Telegram usename' />
+                </div>
+            </Modal>
         </section >
     )
 }

@@ -26,7 +26,6 @@ const Categories = () => {
             querySnapshot.forEach((doc) => {
                 todosArr.push({ ...doc.data(), id: doc.id });
             });
-            console.log(todosArr);
             setQuestions(todosArr);
             setLoader(false)
         });

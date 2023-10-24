@@ -65,3 +65,11 @@ body {
     transform: translateX(0);
   }
 }
+
+.ant-btn-primary {
+  background: #02457a;
+}
+
+.ant-btn-primary:hover {
+  background: #035396 !important;
+}
