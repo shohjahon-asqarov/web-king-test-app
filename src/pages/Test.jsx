@@ -1,5 +1,5 @@
 import { Progress, Result } from 'antd'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -9,6 +9,21 @@ const Test = () => {
     const [myAnswers, setMyAnswers] = useState([])
     const [finish, setFinish] = useState(false)
 
+    const [time, setTime] = useState(0);
+    const [running, setRunning] = useState(false);
+
+    useEffect(() => {
+        let interval;
+        if (running) {
+            interval = setInterval(() => {
+                setTime((prevTime) => prevTime + 10);
+            }, 10);
+        } else if (!running) {
+            clearInterval(interval);
+        }
+        return () => clearInterval(interval);
+    }, [running]);
+
     const { questions } = useSelector((state) => state.questions)
 
     let currentQuestion
@@ -17,6 +32,7 @@ const Test = () => {
     }
 
     const nextQuestion = (correctIndex) => {
+        setRunning(true)
         if (currentQuestion) {
             setIndex(index + 1)
             const currentResult = {
@@ -26,6 +42,9 @@ const Test = () => {
             }
             console.log(currentResult);
             setMyAnswers(myAnswers => [...myAnswers, currentResult])
+            if (myAnswers.length === 9) {
+                setRunning(false)
+            }
         } else {
             setFinish(true)
         }
@@ -41,6 +60,7 @@ const Test = () => {
         return result
     }
 
+
     return (
         <section className='container py-20'>
             {questions.length !== 0 ?
@@ -51,6 +71,7 @@ const Test = () => {
                                 <div className='flex justify-between items-center'>
                                     <h3 className='text-lg sm:text-xl font-semibold border-b pb-4 w-full animation-show'>{index + 1} / 10) {currentQuestion.question}</h3>
                                 </div>
+
                                 <div className='space-y-5 flex flex-col'>
                                     {currentQuestion.answers.map((answer, index) => {
                                         return (
@@ -69,6 +90,14 @@ const Test = () => {
                                         )
                                     })}
                                 </div>
+
+                                <div className="flex justify-end">
+                                    <div className="numbers">
+                                        <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+                                        <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+                                    </div>
+                                </div>
+
                                 <Progress className='progress' percent={(index) * 10} showInfo={false} />
                             </li>
                         </ul>
@@ -92,6 +121,13 @@ const Test = () => {
                                                 <i className='bi bi-question mr-2'></i>
                                                 <span className="font-semibold">Jami savollar: </span>
                                                 {myAnswers.length} ta
+                                            </li>
+                                            <li className='text-[#289C8E] flex'>
+                                                <i className='bi bi-clock mr-2'></i>
+                                                <div className="numbers">
+                                                    <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+                                                    <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+                                                </div>
                                             </li>
                                         </ul>
                                         <Progress className='mx-auto circle-progress' type="circle" percent={checkCorrect(myAnswers) * 10} />
