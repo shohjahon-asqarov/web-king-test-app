@@ -32,10 +32,12 @@
   }
 }
 
-
-
 body {
   overflow-y: scroll;
+}
+
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -57,7 +59,7 @@ body {
 }
 
 .animation-show {
-  animation: show .5s linear 1;
+  animation: show 0.5s linear 1;
 }
 
 @keyframes show {
