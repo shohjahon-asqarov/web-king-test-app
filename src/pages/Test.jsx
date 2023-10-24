@@ -2,6 +2,7 @@ import { Input, Modal, Progress, Result } from 'antd'
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 
 const Test = () => {
@@ -79,6 +80,17 @@ const Test = () => {
         let xhttp = new XMLHttpRequest();
         xhttp.open("GET", url + `${text}`, true);
         xhttp.send();
+
+        toast.success('Telegramga yuborildi!', {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
 
         setIsModalOpen(false);
     };

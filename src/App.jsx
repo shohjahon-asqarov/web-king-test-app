@@ -8,6 +8,9 @@ import Test from './pages/Test'
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -27,6 +30,8 @@ const App = () => {
         <Route path="/category" element={<Categories />} />
         <Route path="/test" element={<Test />} />
       </Routes>
+
+      <ToastContainer />
     </div>
   )
 }
