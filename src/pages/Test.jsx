@@ -122,9 +122,10 @@ const Test = () => {
                                                 <span className="font-semibold">Jami savollar: </span>
                                                 {myAnswers.length} ta
                                             </li>
-                                            <li className='text-[#289C8E] flex'>
+                                            <li className='flex'>
                                                 <i className='bi bi-clock mr-2'></i>
-                                                <div className="numbers">
+                                                <span className='font-semibold'>Sarflangan vaqt: </span>
+                                                <div className="ml-2">
                                                     <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
                                                     <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
                                                 </div>
