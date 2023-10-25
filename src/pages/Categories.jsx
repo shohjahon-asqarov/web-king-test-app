@@ -79,7 +79,7 @@ const Categories = () => {
                                         label: 'Front-end',
                                     },
                                     {
-                                        value: 'Back-end',
+                                        value: 'Backend',
                                         label: 'Back-end',
                                     },
                                 ]}

@@ -4,30 +4,23 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
+import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
+
+import happyVoise from '../assets/audio/happy.mp3'
 
 const Test = () => {
     const navigate = useNavigate()
     const [index, setIndex] = useState(0)
     const [myAnswers, setMyAnswers] = useState([])
     const [finish, setFinish] = useState(false)
-
     const nameRef = useRef()
     const usernameRef = useRef()
-
+    const successVoise = useRef()
     const [time, setTime] = useState(0);
     const [running, setRunning] = useState(false);
-
-    useEffect(() => {
-        let interval;
-        if (running) {
-            interval = setInterval(() => {
-                setTime((prevTime) => prevTime + 10);
-            }, 10);
-        } else if (!running) {
-            clearInterval(interval);
-        }
-        return () => clearInterval(interval);
-    }, [running]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const { width, height } = useWindowSize()
 
     const { questions } = useSelector((state) => state.questions)
 
@@ -64,7 +57,6 @@ const Test = () => {
         return result
     }
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -98,6 +90,33 @@ const Test = () => {
         setIsModalOpen(false);
     };
 
+    useEffect(() => {
+        let interval;
+        if (running) {
+            interval = setInterval(() => {
+                setTime((prevTime) => prevTime + 10);
+            }, 10);
+        } else if (!running) {
+            clearInterval(interval);
+        }
+        return () => clearInterval(interval);
+    }, [running]);
+
+    const [success, setSuccess] = useState(false)
+
+    useEffect(() => {
+        if (checkCorrect(myAnswers) === 10) {
+            setSuccess(true)
+            setTimeout(() => {
+                successVoise.current.play()
+            }, 1000)
+        }
+        setTimeout(() => {
+            setSuccess(false)
+            successVoise.current.pause()
+        }, 8000)
+    }, [myAnswers])
+
     return (
         <section className='container py-20'>
             {questions.length !== 0 ?
@@ -129,9 +148,10 @@ const Test = () => {
                                 </div>
 
                                 <div className="flex justify-end">
-                                    <div className="numbers">
+                                    <div className="font-semibold border border-gray-400 p-2 rounded-md">
                                         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
                                         <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+                                        <i className='bi bi-clock ml-2'></i>
                                     </div>
                                 </div>
 
@@ -213,15 +233,13 @@ const Test = () => {
                         </ul>
                     }
                 </div>
-                : <Result
-                    status="warning"
-                    title="Qamdaydur muammo yuzaga keldi ortga qayting!"
+                : <Result status="warning"
+                    title="Xatolik yuzaga keldi ortga qayting!"
                     extra={
-                        <button onClick={() => navigate(-1)} className='btn-blue'>
+                        <button onClick={() => navigate('/category')} className='btn-blue'>
                             Ortga qaytish
                         </button>
-                    }
-                />
+                    } />
             }
 
             <Modal title="Telegramga ulashish" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
@@ -230,6 +248,9 @@ const Test = () => {
                     <Input ref={usernameRef} className='py-1.5 input' size='large' prefix={<i className='bi bi-telegram'></i>} placeholder='Telegram usename' />
                 </div>
             </Modal>
+
+            {success && <Confetti width={width} height={height} />}
+            <audio ref={successVoise} src={happyVoise}></audio>
         </section >
     )
 }
