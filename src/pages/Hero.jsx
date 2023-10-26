@@ -30,7 +30,7 @@ const Hero = () => {
             Pastdagi tugmani bosing va bilimingizni sinab ko'ring
           </p>
           <Link to='/category' className='btn-blue inline-block space-x-2 py-3.5 px-8'>
-            <span>Boshlamoq</span>
+            <span>Boshlash</span>
             <i className='bi bi-arrow-right'></i>
           </Link>
         </div>

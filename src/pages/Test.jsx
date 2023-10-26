@@ -118,13 +118,13 @@ const Test = () => {
     }, [myAnswers])
 
     return (
-        <section className='container py-10 md:py-20'>
+        <section className='container py-10'>
             {questions.length !== 0 ?
                 <div>
                     {!finish && currentQuestion && questions ?
                         <ul className='space-y-5 mx-auto'>
                             <li className='p-5 py-12 sm:px-8 rounded-3xl bg-card-bg border border-[hsla(0,0%,87.5%,.7)] space-y-5 text-[rgba(2,11,18,.7)] relative overflow-hidden' key={currentQuestion.id}>
-                                <div className='flex min-h-[120px] justify-between'>
+                                <div className='flex min-h-[120px] sm:min-h-[90px] justify-between'>
                                     <h3 className='text-lg sm:text-xl font-semibold border-b pb-4 w-full animation-show'>{index + 1} / 10) {currentQuestion.question}</h3>
                                 </div>
 
