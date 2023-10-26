@@ -26,7 +26,7 @@ const Hero = () => {
               />
             </span>
           </h1>
-          <p className='text-gray-700 md:text-lg'>
+          <p className='text-gray-700 md:text-lg px-5 sm:px-0'>
             Pastdagi tugmani bosing va bilimingizni sinab ko'ring
           </p>
           <Link to='/category' className='btn-blue inline-block space-x-2 py-3.5 px-8'>
@@ -36,7 +36,7 @@ const Hero = () => {
         </div>
 
         <div data-aos='fade-left' className='md:col-span-3 hero-img'>
-          <img width='700' height='700' className='lg:-translate-x-20 lg:-translate-y-5' src={heroImg} alt="hero" />
+          <img width='700' height='700' className='lg:-translate-x-20 lg:-translate-y-5 w-11/12 mx-auto sm:w-full' src={heroImg} alt="hero" />
         </div>
       </div>
 
