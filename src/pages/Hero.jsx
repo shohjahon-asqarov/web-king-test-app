@@ -27,7 +27,7 @@ const Hero = () => {
             </span>
           </h1>
           <p className='text-gray-700 md:text-lg'>
-            Pastdagi tugmani bosing va blimingizni sinab ko'ring
+            Pastdagi tugmani bosing va bilimingizni sinab ko'ring
           </p>
           <Link to='/category' className='btn-blue inline-block space-x-2 py-3.5 px-8'>
             <span>Boshlamoq</span>
