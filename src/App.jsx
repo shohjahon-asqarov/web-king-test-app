@@ -11,15 +11,23 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import ReactGA from "react-ga4";
+
 import AOS from 'aos';
 // import 'aos/dist/aos.css';
 
 import './css/loader.css'
 
+ReactGA.initialize("G-C6DKS41T5W");
+
 const App = () => {
   useEffect(() => {
     AOS.init()
   }, [])
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <div>
@@ -35,5 +43,6 @@ const App = () => {
     </div>
   )
 }
+
 
 export default App
