@@ -7,7 +7,7 @@ const Hero = () => {
 
   return (
     <section className='container'>
-      <div className="grid lg:grid-cols-7 gap-x-10 gap-y-5 items-center py-10 lg:py-0">
+      <div className="grid lg:grid-cols-7 gap-x-10 gap-y-5 items-center py-10 lg:py-10">
         <div data-aos='fade-up' className='space-y-3 md:space-y-5 lg:col-span-4 text-center lg:text-left'>
           <h1 className='text-4xl md:text-7xl font-bold'>
             Webking <br />
