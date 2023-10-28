@@ -20,6 +20,7 @@ const Test = () => {
     const [time, setTime] = useState(0);
     const [running, setRunning] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [telegramModal, setTelegramModal] = useState(false);
     const { width, height } = useWindowSize()
 
     const { questions } = useSelector((state) => state.questions)
@@ -83,8 +84,9 @@ const Test = () => {
             progress: undefined,
             theme: "light",
         });
-        
+
         setIsModalOpen(false);
+        setTelegramModal(true)
     };
     const handleCancel = () => {
         setIsModalOpen(false);
@@ -249,6 +251,16 @@ const Test = () => {
                 <div className='space-y-4 py-8'>
                     <Input ref={nameRef} className='py-1.5 input' size='large' prefix={<i className='bi bi-person'></i>} placeholder='Ism familiyangiz' />
                     <Input ref={usernameRef} className='py-1.5 input' size='large' prefix={<i className='bi bi-telegram'></i>} placeholder='Telegram usename' />
+                </div>
+            </Modal>
+
+
+            <Modal title={`Natijangizni ko'ring`} open={telegramModal} onOk={() => setTelegramModal(false)} onCancel={() => setTelegramModal(false)}>
+                <div className='flex justify-center py-10'>
+                    <a target='_blank' href='https://t.me/webking_result' className="btn-blue bg-[#229ED9]">
+                        Natijalarni ko'rish
+                        <i className='bi bi-telegram ml-2'></i>
+                    </a>
                 </div>
             </Modal>
 
