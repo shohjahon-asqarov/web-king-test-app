@@ -21,7 +21,7 @@
 
 @layer components {
   .container {
-    @apply max-w-7xl mx-auto px-5;
+    @apply max-w-7xl mx-auto px-5 lg:px-20;
   }
   .btn-blue {
     @apply text-white font-medium py-3 px-6 md:py-3.5 md:px-8 rounded-full;

@@ -35,7 +35,7 @@ const Hero = () => {
           </Link>
         </div>
 
-        <div data-aos='fade-left' className='lg:col-span-3 hero-img'>
+        <div data-aos='fade-left' className='lg:col-span-3 hero-img mx-auto sm:w-9/12 lg:w-full'>
           <img width='700' height='700' className='lg:-translate-x-20 lg:-translate-y-5 w-11/12 mx-auto sm:w-full' src={heroImg} alt="hero" />
         </div>
       </div>
