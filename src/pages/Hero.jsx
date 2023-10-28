@@ -7,8 +7,8 @@ const Hero = () => {
 
   return (
     <section className='container'>
-      <div className="grid md:grid-cols-7 gap-x-10 gap-y-5 items-center py-10 md:py-0">
-        <div data-aos='fade-up' className='space-y-3 md:space-y-5 md:col-span-4 text-center md:text-left'>
+      <div className="grid lg:grid-cols-7 gap-x-10 gap-y-5 items-center py-10 lg:py-0">
+        <div data-aos='fade-up' className='space-y-3 md:space-y-5 lg:col-span-4 text-center lg:text-left'>
           <h1 className='text-4xl md:text-7xl font-bold'>
             Webking <br />
             <span className='text-[#289C8E]'>
@@ -35,7 +35,7 @@ const Hero = () => {
           </Link>
         </div>
 
-        <div data-aos='fade-left' className='md:col-span-3 hero-img'>
+        <div data-aos='fade-left' className='lg:col-span-3 hero-img'>
           <img width='700' height='700' className='lg:-translate-x-20 lg:-translate-y-5 w-11/12 mx-auto sm:w-full' src={heroImg} alt="hero" />
         </div>
       </div>
