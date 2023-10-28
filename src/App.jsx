@@ -25,8 +25,6 @@ const App = () => {
     AOS.init()
   }, [])
 
-  
-
   return (
     <div>
       <Navbar />
