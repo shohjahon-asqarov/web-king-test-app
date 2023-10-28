@@ -17,18 +17,15 @@ import AOS from 'aos';
 // import 'aos/dist/aos.css';
 
 import './css/loader.css'
+import useGaTracker from './useGaTracker'
 
-const TRACKING_ID = 'G-C6DKS41T5W'
-ReactGA.initialize(TRACKING_ID);
 
 const App = () => {
   useEffect(() => {
     AOS.init()
   }, [])
 
-  useEffect(() => {
-    ReactGA.send('pageview')
-  }, [])
+  useGaTracker()
 
   return (
     <div>
