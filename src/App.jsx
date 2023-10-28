@@ -18,11 +18,16 @@ import AOS from 'aos';
 
 import './css/loader.css'
 
-ReactGA.initialize("G-C6DKS41T5W");
+const TRACKING_ID = 'G-C6DKS41T5W'
+ReactGA.initialize(TRACKING_ID);
 
 const App = () => {
   useEffect(() => {
     AOS.init()
+  }, [])
+
+  useEffect(() => {
+    ReactGA.send('pageview')
   }, [])
 
   return (
