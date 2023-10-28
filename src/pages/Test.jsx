@@ -1,4 +1,4 @@
-import { Input, Modal, Progress, Result } from 'antd'
+import { Alert, Input, Modal, Progress, Result } from 'antd'
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -73,7 +73,7 @@ const Test = () => {
         xhttp.open("GET", url + `${text}`, true);
         xhttp.send();
 
-        toast.success('Telegramga yuborildi!', {
+        toast.success(`Natijangiz yuborildi!`, {
             position: "bottom-right",
             autoClose: 2000,
             hideProgressBar: true,
@@ -83,7 +83,7 @@ const Test = () => {
             progress: undefined,
             theme: "light",
         });
-
+        
         setIsModalOpen(false);
     };
     const handleCancel = () => {
@@ -190,6 +190,9 @@ const Test = () => {
                                         </ul>
                                         <Progress className='mx-auto circle-progress' type="circle" percent={checkCorrect(myAnswers) * 10} />
                                     </div>
+
+                                    <p className='text-sm sm:text-base'>Natijalarni ko'rish uchun yuqoridagi natijalar tugmasini bosing!</p>
+
 
                                     <div className='border-t pt-4 flex space-x-5'>
                                         <button onClick={() => navigate('/category')} className="btn-blue">
